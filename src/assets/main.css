@@ -1,35 +1,187 @@
-@import './base.css';
+@import url('base.css');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+.sidebar_nav{
+    flex-basis: 30%;
+    height: 100vh;
+    background-color: var(--bg-black);
+}
+.sidebar_links{
+    padding-top: 7em;
+    font-weight: 400;
+}
+.sidebar_links .link{
+    border: none;
+    background-color: transparent;
+    border: 2px solid var(--bg-black);
+    text-align: left;
+    padding-left: 4em;
+    color: white;
+    gap: 10px;
+    letter-spacing: .025rem;
+}
+.sidebar_links .link img{
+    width: 2em;
+    filter: invert(1);
+}
+.sidebar_links .link:hover{
+    border-top: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+}
+main{
+    width: 100%;
+    background-color: var(--white);
+}
+.input_cont{
+    background-color: white;
+    border-radius: 15px;
+    padding:25px 15px;
+    gap: 25px;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.numpad_display_cont{
+    background-color: white;
 }
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.numpad_display_cont .currency_symbol{
+    background-color: white;
+    font-family: Poppins;
+    font-size: 28px;
+    font-weight: 700;
+    color: #c6c6c6;
+    text-align: center;
 }
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
+.numpad_display_cont .numpad_display_input{
+    background-color: inherit;
+    border: none;
+    font-weight: 800;
+    font-size: 2.7em;
+    color: var(--bg-black);
+    text-align: center;
+    width: auto;
+    position: relative;
+    
+}
+.numpad_display_cont .numpad_display_input::before{
+    content: "hello world";
+    /* background-color: black;
+    font-size: 3em; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 5px;
+}
+.numpad_keys {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+    grid-gap: 10px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+}
+.numpad_keys button{
+    /* background-color: yellow; */
+    border-radius: 8px;
+    font-size: 1.2em;
+    color: var(--bg-black);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+}
+.zerobtn{
+    grid-area: 4 / 1 / span 2 / span 3;
+}
+.span_down{
+    grid-area: 3/4/span 4/4;
+}
+/* Basic styling for the dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* Dropdown items that will show up when the dropdown button is clicked */
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    max-height: 300px; /* Set a fixed height */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Styling for each category item in the dropdown */
+.dropdown_content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown_content .category{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+}
+.uploadbtn img,.dropbtn img,.category img,.numpad_keys img{
+   width: 1.5em;
+}
+.uploadbtn{
+    position:relative;
+}
+.uploadbtn .file_input{
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.dropdown_content a:hover {
+    background-color: #ddd;
+}
+
+.dropbtn,.uploadbtn{
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--bg-black);
+    font-weight: 600;
+    border: none;
+    border-radius: 55px;
+    width: 350px;
+}
+.dropdown_content.show{
+    display: block;
+}
+.top_row{
+    gap: 10px;
+}
+.container {
+    margin: 20px;
+}
+.comment_field{
+    width: 100%;
+}
+.comment_input{
+    border: none;
+    outline: none;
+    text-align: center;
+    width: auto;
+}
+.calender{
+    position:relative;
+}
+.calender input{
+    display: none;
+}
+#calender_input.active {
+    position: absolute;
+    display: block;
 }
